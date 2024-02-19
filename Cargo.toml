@@ -1,0 +1,13 @@
+[package]
+name = "euler"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bench]]
+name = "0002"
+path = "src/benches/0002.rs"
+
+[dependencies]
+criterion = { version = "0.4" }
