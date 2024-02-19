@@ -44,7 +44,6 @@ impl Direction {
 }
 
 pub fn euler_0011() -> String {
-
     let mut max_product = 0;
     (0..HEIGHT).for_each(|i| {
         (0..WIDTH).for_each(|j| {

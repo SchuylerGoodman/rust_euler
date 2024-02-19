@@ -13,6 +13,7 @@ pub fn euler_0002_fast() -> String {
     return sum.to_string();
 }
 
+#[allow(dead_code)]
 pub fn euler_0002_slow() -> String {
     let max_x = 4000000;
     let mut x_1 = 0;
