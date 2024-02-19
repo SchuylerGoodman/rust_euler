@@ -1,18 +1,16 @@
 pub fn euler_0012() -> String {
     let target_divisors = 500;
-    let max = 12377;
+    let max = 13000;
 
     let mut current_triangle = 0;
     let mut divisor_count = 0;
-    for i in 1..max {
-        current_triangle = (i * (i + 1)) / 2;
-        if i % 2 == 0 {
-            divisor_count = count_divisors(i / 2, 1) * count_divisors(i + 1, 1);
+    for n in 1..max {
+        current_triangle = (n * (n + 1)) / 2;
+        if n % 2 == 0 {
+            divisor_count = count_divisors(n / 2) * count_divisors(n + 1);
+        } else { 
+            divisor_count = count_divisors(n) * count_divisors((n + 1) / 2);
         }
-        else {
-            divisor_count = count_divisors(i, 1) * count_divisors((i + 1) / 2, 1);
-        }
-        println!("{} {} {}", i, current_triangle, divisor_count);
 
         if divisor_count > target_divisors {
             break;
@@ -25,26 +23,25 @@ pub fn euler_0012() -> String {
     }
 }
 
-fn count_divisors(n: i32, start: i32) -> usize {
+fn count_divisors(n: i32) -> usize {
     let max = f64::from(n).sqrt().ceil() as i32;
     if n == 1 {
         return 1;
     }
 
     let mut n_div = n;
-    for i in (start..max + 1) {
-        if n_div % i == 0 {
-            let mut count = 1;
-            while n_div % i == 0 {
-                n_div /= i;
-                count += 1;
-            }
-
-            return count_divisors(n_div, i + 1) * count;
+    let mut total = 1;
+    for i in 2..max + 1 {
+        let mut count = 1;
+        while n_div % i == 0 {
+            n_div /= i;
+            count += 1;
         }
+
+        total *= count;
     }
 
-    2
+    total
 }
 
 /*
