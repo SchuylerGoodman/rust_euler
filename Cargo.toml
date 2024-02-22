@@ -10,4 +10,5 @@ name = "0002"
 path = "src/benches/0002.rs"
 
 [dependencies]
-criterion = { version = "0.4" }
+criterion = { version = "0.5.1" }
+num = "0.4.1"
