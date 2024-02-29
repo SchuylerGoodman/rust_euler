@@ -13,6 +13,7 @@ mod e0012;
 mod e0013;
 mod e0014;
 mod e0015;
+mod e0016;
 
 use crate::euler::e0001::euler_0001;
 use crate::euler::e0002::euler_0002_fast;
@@ -29,6 +30,7 @@ use crate::euler::e0012::euler_0012;
 use crate::euler::e0013::euler_0013;
 use crate::euler::e0014::euler_0014;
 use crate::euler::e0015::euler_0015;
+use crate::euler::e0016::euler_0016;
 
 pub fn get_method(problem_number: usize) -> impl Fn() -> String {
     match problem_number {
@@ -47,6 +49,7 @@ pub fn get_method(problem_number: usize) -> impl Fn() -> String {
         13 => euler_0013,
         14 => euler_0014,
         15 => euler_0015,
+        16 => euler_0016,
         _ => || "Not implemented".to_string(),
     }
 }
